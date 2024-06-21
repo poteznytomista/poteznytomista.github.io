@@ -1,0 +1,117 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #000000;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1b1b1b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.input-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#verse-input {
+    width: 60%;
+    padding: 12px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e67e22;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d35400;
+}
+
+.dropdown-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+select {
+    width: 40%;
+    padding: 12px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    margin: 0 10px 10px 0;
+}
+
+select:focus {
+    border-color: #e67e22;
+    outline: none;
+}
+
+.verse-display {
+    margin-top: 20px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 4px;
+    color: #b3b3b3;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.verse-number {
+    vertical-align: super;
+    font-size: smaller;
+    user-select: none;
+    color: rgb(224, 224, 224);
+}
+
+input, select {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+input::placeholder {
+    color: #999;
+}
+
+button {
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+}
+
+button:active {
+    background-color: #c0392b;
+    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+}
+
+h3 {
+    color: white;
+    margin-top: 20px;
+    font-size: 24px;
+}
