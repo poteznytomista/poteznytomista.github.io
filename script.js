@@ -27,6 +27,7 @@ async function loadBibleVerses(book, chapter) {
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
         'Jana': '50_J',
+        'Dzieje Apostolskie': '51_Dz',
         'Objawienie': '73_Ap'
         // Add mappings for all other books
     };
@@ -56,7 +57,7 @@ async function loadBibleVerses(book, chapter) {
 
 async function populateBooks() {
     const bookSelect = document.getElementById('book-select');
-    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Objawienie'/* Add all other books here */];
+    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Dzieje Apostolskie', 'Objawienie'/* Add all other books here */];
     
     books.forEach(book => {
         const option = document.createElement('option');
@@ -81,6 +82,7 @@ async function populateChapters() {
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
         'Jana': '50_J',
+        'Dzieje Apostolskie': '51_Dz',
         'Objawienie': '73_Ap'
         // Add mappings for all other books
     };
