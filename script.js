@@ -22,12 +22,19 @@ async function loadBibleVerses(book, chapter) {
         'Rodzaju': '01_Rdz',
         'Wyjścia': '02_Wj',
         'Kapłańska': '03_Kpł',
+        'Liczb': '04_Lb',
+        'Deuteronomium': '05_Pwt',
+        'Jozuego': '06_Joz',
         'Psalmów': '23_Ps',
         'Mateusza': '47_Mt',
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
         'Jana': '50_J',
-        'Dzieje Apostolskie': '51_Dz',
+        'Dziejów': '51_Dz',
+        'Rzymian': '52_Rz',
+        'Jakuba': '66_Jk',
+        '1 Piotra': '67_1P',
+        '2 Piotra': '68_2P',
         'Objawienie': '73_Ap'
         // Add mappings for all other books
     };
@@ -39,25 +46,33 @@ async function loadBibleVerses(book, chapter) {
     }
 
     const chapterPadded = chapter.padStart(2, '0');
-    const fileUrl = `https://raw.githubusercontent.com/p-o-t-a-t-o-g-a-m-i-n-g/Biblia-Jakuba-Wujka-/main/ksiegi/${bookFolder}/${chapterPadded}`;
+    const fileUrls = [
+        `https://raw.githubusercontent.com/p-o-t-a-t-o-g-a-m-i-n-g/Biblia-Jakuba-Wujka-/main/ksiegi/${bookFolder}/${chapterPadded}.txt`,
+        `https://raw.githubusercontent.com/p-o-t-a-t-o-g-a-m-i-n-g/Biblia-Jakuba-Wujka-/main/ksiegi/${bookFolder}/${chapterPadded}`
+    ];
 
-    try {
-        const response = await fetch(fileUrl);
-        const text = await response.text();
-        const verses = text.split('\n').reduce((acc, line, index) => {
-            acc[index + 1] = line;
-            return acc;
-        }, {});
-        return { [book]: { [chapter]: verses } };
-    } catch (error) {
-        console.error('Error loading Bible verses:', error);
-        return null;
+    for (const fileUrl of fileUrls) {
+        try {
+            const response = await fetch(fileUrl);
+            if (response.ok) {
+                const text = await response.text();
+                const verses = text.split('\n').reduce((acc, line, index) => {
+                    acc[index + 1] = line;
+                    return acc;
+                }, {});
+                return { [book]: { [chapter]: verses } };
+            }
+        } catch (error) {
+            console.error('Error loading Bible verses:', error);
+        }
     }
+    console.error('Failed to load Bible verses from any source');
+    return null;
 }
 
 async function populateBooks() {
     const bookSelect = document.getElementById('book-select');
-    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Dzieje Apostolskie', 'Objawienie'/* Add all other books here */];
+    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Liczb', 'Deuteronomium', 'Jozuego', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Dziejów', 'Rzymian', 'Jakuba', '1 Piotra', '2 Piotra', 'Objawienie'/* Add all other books here */];
     
     books.forEach(book => {
         const option = document.createElement('option');
@@ -77,12 +92,19 @@ async function populateChapters() {
         'Rodzaju': '01_Rdz',
         'Wyjścia': '02_Wj',
         'Kapłańska': '03_Kpł',
+        'Liczb': '04_Lb',
+        'Deuteronomium': '05_Pwt',
+        'Jozuego': '06_Joz',
         'Psalmów': '23_Ps',
         'Mateusza': '47_Mt',
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
         'Jana': '50_J',
-        'Dzieje Apostolskie': '51_Dz',
+        'Dziejów': '51_Dz',
+        'Rzymian': '52_Rz',
+        'Jakuba': '66_Jk',
+        '1 Piotra': '67_1P',
+        '2 Piotra': '68_2P',
         'Objawienie': '73_Ap'
         // Add mappings for all other books
     };
@@ -94,7 +116,10 @@ async function populateChapters() {
     }
 
     const fileList = await fetchFileList(bookFolder);
-    const chapters = fileList.map(file => parseInt(file.split('.')[0])).filter(chapter => !isNaN(chapter)).sort((a, b) => a - b);
+    const chapters = fileList.map(file => {
+        const chapterNumber = file.replace('.txt', '');
+        return parseInt(chapterNumber);
+    }).filter(chapter => !isNaN(chapter)).sort((a, b) => a - b);
 
     chapters.forEach(chapter => {
         const option = document.createElement('option');
