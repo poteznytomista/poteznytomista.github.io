@@ -25,7 +25,13 @@ async function loadBibleVerses(book, chapter) {
         'Liczb': '04_Lb',
         'Deuteronomium': '05_Pwt',
         'Jozuego': '06_Joz',
+        'Sędziów': '07_Sdz',
+        'Ruth': '08_Rt',
+        'I Samuela': '09_1Sm',
+        'II Samuela': '10_2Sm',
         'Psalmów': '23_Ps',
+        'Psalmy Syryjskie': '74_PsSyr',
+        'Modlitwa Manassesa': '75_Mns',
         'Mateusza': '47_Mt',
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
@@ -72,7 +78,7 @@ async function loadBibleVerses(book, chapter) {
 
 async function populateBooks() {
     const bookSelect = document.getElementById('book-select');
-    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Liczb', 'Deuteronomium', 'Jozuego', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Dziejów', 'Rzymian', 'Jakuba', '1 Piotra', '2 Piotra', 'Objawienie'/* Add all other books here */];
+    const books = ['Rodzaju', 'Wyjścia', 'Kapłańska', 'Liczb', 'Deuteronomium', 'Jozuego', 'Sędziów', 'Ruth', 'I Samuela', 'II Samuela', 'Psalmów', 'Mateusza', 'Marka', 'Łukasza', 'Jana', 'Dziejów', 'Rzymian', 'Jakuba', '1 Piotra', '2 Piotra', 'Objawienie', 'Psalmy Syryjskie', 'Modlitwa Manassesa' /* Add all other books here */];
     
     books.forEach(book => {
         const option = document.createElement('option');
@@ -95,7 +101,13 @@ async function populateChapters() {
         'Liczb': '04_Lb',
         'Deuteronomium': '05_Pwt',
         'Jozuego': '06_Joz',
+        'Sędziów': '07_Sdz',
+        'Ruth': '08_Rt',
+        'I Samuela': '09_1Sm',
+        'II Samuela': '10_2Sm',
         'Psalmów': '23_Ps',
+        'Psalmy Syryjskie': '74_PsSyr',
+        'Modlitwa Manassesa': '75_Mns',
         'Mateusza': '47_Mt',
         'Marka': '48_Mk',
         'Łukasza': '49_Łk',
@@ -217,3 +229,4 @@ function getVerseText(bibleVerses, book, chapter, verse) {
 }
 
 document.addEventListener('DOMContentLoaded', populateBooks);
+
