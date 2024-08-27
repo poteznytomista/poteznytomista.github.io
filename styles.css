@@ -1,27 +1,35 @@
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #000000;
-    color: #333;
+    background: linear-gradient(135deg, #000000, #434343);
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s ease;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #1b1b1b;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(145deg, #1b1b1b, #333);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
     margin-top: 50px;
-    border-radius: 8px;
+    border-radius: 12px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
     text-align: center;
-    color: white;
-    font-size: 60px;
+    color: #fff;
+    font-size: 4rem;
     margin-bottom: 40px;
     font-weight: 300;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05);
+    color: #f39c12;
 }
 
 .input-section {
@@ -33,26 +41,39 @@ h1 {
     width: 60%;
     padding: 12px 20px;
     margin-right: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid #444;
     font-size: 16px;
+    background-color: #222;
+    color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#verse-input:focus {
+    border-color: #e67e22;
     background-color: #333;
-    color: white;
 }
 
 button {
     padding: 12px 25px;
     border: none;
-    border-radius: 4px;
-    background-color: #e67e22;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #e67e22, #d35400);
     color: white;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #d35400;
+    background: linear-gradient(145deg, #d35400, #e67e22);
+    transform: scale(1.05);
+}
+
+button:active {
+    background: linear-gradient(145deg, #c0392b, #e74c3c);
+    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
 }
 
 .dropdown-section {
@@ -63,55 +84,71 @@ button:hover {
 select {
     width: 40%;
     padding: 12px 20px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid #444;
     font-size: 16px;
-    background-color: #333;
+    background-color: #222;
     color: white;
     margin: 0 10px 10px 0;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 select:focus {
     border-color: #e67e22;
+    background-color: #333;
     outline: none;
 }
 
 .verse-display {
     margin-top: 20px;
-    background-color: #111;
+    background: linear-gradient(145deg, #111, #222);
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #b3b3b3;
     font-size: 18px;
     line-height: 1.6;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s ease-out;
 }
 
 .verse-number {
     vertical-align: super;
     font-size: smaller;
     user-select: none;
-    color: rgb(224, 224, 224);
+    color: #e0e0e0;
 }
 
 input, select {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 input::placeholder {
-    color: #999;
-}
-
-button {
-    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
-}
-
-button:active {
-    background-color: #c0392b;
-    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+    color: #888;
 }
 
 h3 {
     color: white;
     margin-top: 20px;
     font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h3:hover {
+    transform: scale(1.05);
+    color: #e67e22;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
