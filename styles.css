@@ -1,154 +1,162 @@
+
 body {
-    font-family: 'Lato', sans-serif;
-    background: linear-gradient(135deg, #000000, #434343);
-    color: #e0e0e0;
+    font-family: "EB Garamond", serif;
+    background-color: #161616;
+    color: #e8e8e8;
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s ease;
+    line-height: 1.6;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
+header {
+    background-color: #1b1b1b;
+    color: #e8e8e8;
+    text-align: center;
     padding: 20px;
-    background: linear-gradient(145deg, #1b1b1b, #333);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-    margin-top: 50px;
-    border-radius: 12px;
-    animation: fadeIn 1s ease-in-out;
+    font-size: 2rem;
+    font-family: "Uncial Antiqua", cursive;
+    border-bottom: 3px solid #424242;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
 }
 
-h1 {
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    border-bottom: 2px solid #555;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #e8e8e8;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+}
+
+h1, h2 {
+    font-family: "Uncial Antiqua", cursive;
+    color: #ffffff;
     text-align: center;
-    color: #fff;
-    font-size: 4rem;
-    margin-bottom: 40px;
-    font-weight: 300;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-h1:hover {
-    transform: scale(1.05);
-    color: #f39c12;
-}
-
-.input-section {
     margin-bottom: 20px;
-    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-#verse-input {
-    width: 60%;
-    padding: 12px 20px;
-    margin-right: 10px;
-    border-radius: 6px;
+h2 {
+    font-size: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #bbbbbb;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
     border: 1px solid #444;
-    font-size: 16px;
-    background-color: #222;
-    color: #fff;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-#verse-input:focus {
-    border-color: #e67e22;
-    background-color: #333;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #e8e8e8;
+    font-size: 1rem;
 }
 
 button {
-    padding: 12px 25px;
+    background-color: #444;
+    color: #e8e8e8;
+    padding: 10px 20px;
     border: none;
-    border-radius: 6px;
-    background: linear-gradient(145deg, #e67e22, #d35400);
-    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-    background: linear-gradient(145deg, #d35400, #e67e22);
+    background-color: #494949;
+    color: #000;
     transform: scale(1.05);
 }
 
-button:active {
-    background: linear-gradient(145deg, #c0392b, #e74c3c);
-    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
-}
-
-.dropdown-section {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-select {
-    width: 40%;
-    padding: 12px 20px;
-    border-radius: 6px;
+#output-field {
+    font-family: "EB Garamond", serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
     border: 1px solid #444;
-    font-size: 16px;
-    background-color: #222;
-    color: white;
-    margin: 0 10px 10px 0;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #dcdcdc;
+    overflow-y: auto;
+    max-height: 400px;
 }
 
-select:focus {
-    border-color: #e67e22;
-    background-color: #333;
-    outline: none;
+/* Add a glow effect to headers */
+h1 {
+    animation: glow 1.5s infinite alternate;
 }
 
-.verse-display {
-    margin-top: 20px;
-    background: linear-gradient(145deg, #111, #222);
-    padding: 20px;
-    border-radius: 6px;
-    color: #b3b3b3;
-    font-size: 18px;
-    line-height: 1.6;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    animation: slideIn 0.5s ease-out;
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #969696, 0 0 10px #ffffff;
+    }
+    to {
+        text-shadow: 0 0 20px #969696, 0 0 30px #ffffff;
+    }
 }
 
-.verse-number {
-    vertical-align: super;
-    font-size: smaller;
-    user-select: none;
-    color: #e0e0e0;
+/* Pseudo-illuminated decorations */
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #ffffff, #1d1d1d, #ffffff);
+    margin: 20px 0;
 }
 
-input, select {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease;
+a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-input:focus, select:focus {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+a:hover {
+    text-decoration: underline;
 }
 
-input::placeholder {
-    color: #888;
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-h3 {
-    color: white;
-    margin-top: 20px;
-    font-size: 24px;
-    transition: transform 0.3s ease, color 0.3s ease;
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
 }
 
-h3:hover {
-    transform: scale(1.05);
-    color: #e67e22;
+::-webkit-scrollbar-thumb {
+    background: #ffdd57;
+    border-radius: 5px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
 }
