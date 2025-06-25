@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblia Jakuba Wujka</title>
+    <title>Bible Reader</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>BIBLIA JAKUBA WUJKA </h1>
-        <div class="input-section">
-            <label for="verse-input">Wprowadź wersety (np. Jana 3:16):</label>
-            <input type="text" id="verse-input" placeholder="Jana 3:16">
-            <button onclick="showVerses()">Pokaż tekst</button>
-        </div>
-        <div class="dropdown-section">
-            <label for="book-select">Wybierz Księgę:</label>
-            <select id="book-select" onchange="populateChapters()">
-                <option value="">wybierz księgę</option>
-                <!-- Options will be populated by JavaScript -->
+    <header>
+        <h1>Bible Reader</h1>
+    </header>
+    <main>
+        <section id="translation-selection">
+            <label for="translation-select">Choose a translation:</label>
+            <select id="translation-select">
+                <option value="WUJ">Biblia Jakuba Wujka</option>
+                <option value="DRA">Douay-Rheims Bible</option>
+                <option value="NA1904">Nestle-Aland 1904</option>
+                <option value="VUL">Vulgata Clementina</option>
+                <!-- Add more translations as needed -->
             </select>
-            <label for="chapter-select">Wybierz Rozdział:</label>
-            <select id="chapter-select" onchange="showSelectedVerse()">
-                <option value="">wybierz rozdział</option>
-                <!-- Options will be populated by JavaScript -->
-            </select>
-        </div>
-        <div id="verse-display" class="verse-display"></div>
-    </div>
-    <script src="script.js"></script>
+        </section>
+
+        <section id="dynamic-selection">
+            <label for="book-select">Choose a book:</label>
+            <select id="book-select"></select>
+
+            <label for="chapter-select">Choose a chapter:</label>
+            <select id="chapter-select"></select>
+        </section>
+
+        <section id="verse-selection">
+            <label for="verse-input">Enter verse (e.g., J 3,16):</label>
+            <input type="text" id="verse-input" placeholder="Book Chapter,Verse">
+            <button id="fetch-verse">Get Verse</button>
+        </section>
+
+        <section id="output">
+            <h2>Output</h2>
+            <div id="output-field"></div>
+        </section>
+    </main>
 </body>
 </html>
