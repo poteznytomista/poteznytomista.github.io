@@ -1,46 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Reader</title>
+    <title>Scriptura Sacra</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
-    <header>
-        <h1>Bible Reader</h1>
-    </header>
-    <main>
-        <section id="translation-selection">
-            <label for="translation-select">Choose a translation:</label>
-            <select id="translation-select">
-                <option value="WUJ">Biblia Jakuba Wujka</option>
-                <option value="DRA">Douay-Rheims Bible</option>
-                <option value="NA1904">Nestle-Aland 1904</option>
-                <option value="VUL">Vulgata Clementina</option>
-                <!-- Add more translations as needed -->
-            </select>
-        </section>
+    <!-- Pasek z wyborem: księga, rozdział, tłumaczenie, wpis manualny -->
+    <div id="toolbar">
+        <div class="selector">
+            <select id="bookSelect"></select>
+        </div>
+        <div class="selector">
+            <select id="chapterSelect"></select>
+        </div>
+        <div class="selector">
+            <select id="translationSelect"></select>
+        </div>
+        <div class="selector">
+            <input type="text" id="referenceInput" placeholder="np. Wj 1,2">
+            <button id="refSubmit">Pokaż</button>
+        </div>
+    </div>
+    <!-- Pole wyświetlania tekstu -->
+    <div id="textDisplay"></div>
 
-        <section id="dynamic-selection">
-            <label for="book-select">Choose a book:</label>
-            <select id="book-select"></select>
-
-            <label for="chapter-select">Choose a chapter:</label>
-            <select id="chapter-select"></select>
-        </section>
-
-        <section id="verse-selection">
-            <label for="verse-input">Enter verse (e.g., J 3,16):</label>
-            <input type="text" id="verse-input" placeholder="Book Chapter,Verse">
-            <button id="fetch-verse">Get Verse</button>
-        </section>
-
-        <section id="output">
-            <h2>Output</h2>
-            <div id="output-field"></div>
-        </section>
-    </main>
+    <script src="script.js"></script>
 </body>
 </html>
